@@ -11,5 +11,11 @@ namespace NContract
             if (value == null)
                 throw new ArgumentNullException(parameterName);
         }
+
+        public static void Null(object value, string parameterName)
+        {
+            if (value != null)
+                throw new ArgumentException("Value must be null.", parameterName);
+        }
     }
 }
