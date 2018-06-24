@@ -6,6 +6,12 @@ namespace NContract
     [DebuggerStepThrough]
     public static class Require
     {
+        public static void True(bool condition, string message, string parameterName)
+        {
+            if (!condition)
+                throw new ArgumentException(message, parameterName);
+        }
+
         public static void NotNull(object value, string parameterName)
         {
             if (value == null)
