@@ -28,5 +28,30 @@ namespace NContract.Tests
         {
             Assert.Throws<ArgumentException>(() => Require.Null("", "name"));
         }
+
+        [Fact]
+        public void NotNullOrEmpty_WhenNull_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => Require.NotNullOrEmpty(null, "name"));
+        }
+
+        [Fact]
+        public void NotNullOrEmpty_WhenEmpty_ThrowsArgumentException()
+        {
+            Assert.Throws<ArgumentException>(() => Require.NotNullOrEmpty("", "name"));
+        }
+
+        [Fact]
+        public void NotNullOrEmpty_WhenWhiteSpace_DoesNotThrow()
+        {
+            Require.NotNull(" ", "name");
+        }
+
+        [Fact]
+        public void NotNullOrEmpty_WhenNotNull_DoesNotThrow()
+        {
+            Require.NotNull("", "name");
+        }
+
     }
 }

@@ -17,5 +17,16 @@ namespace NContract
             if (value != null)
                 throw new ArgumentException("Value must be null.", parameterName);
         }
+
+        public static void NotNullOrEmpty(string value, string parameterName)
+        {
+            if (!string.IsNullOrEmpty(value))
+                return;
+
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
+            throw new ArgumentException("Value must not be empty.", parameterName);
+        }
     }
 }
