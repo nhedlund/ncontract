@@ -35,6 +35,18 @@ namespace NContract
         }
 
         /// <summary>
+        /// Require that the <paramref name="condition"/> parameter is true.
+        /// </summary>
+        /// <param name="condition">Condition to verify that must be true.</param>
+        /// <param name="createException">Factory method that creates the exception thrown.</param>
+        /// <exception cref="True{TException}">Thrown when the <paramref name="condition"/> parameter is false.</exception>
+        public static void True<TException>(bool condition, Func<TException> createException) where TException : Exception
+        {
+            if (!condition)
+                throw createException();
+        }
+
+        /// <summary>
         /// Require that the <paramref name="value"/> parameter is not null.
         /// </summary>
         /// <param name="value">Value that must not be null.</param>
