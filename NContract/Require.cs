@@ -47,6 +47,43 @@ namespace NContract
         }
 
         /// <summary>
+        /// Require that the <paramref name="condition"/> parameter is false.
+        /// </summary>
+        /// <param name="condition">Condition to verify that must be false.</param>
+        /// <param name="message">Exception message.</param>
+        /// <exception cref="ArgumentException">Thrown when the <paramref name="condition"/> parameter is true.</exception>
+        public static void False(bool condition, string message)
+        {
+            if (condition)
+                throw new ArgumentException(message);
+        }
+
+        /// <summary>
+        /// Require that the <paramref name="condition"/> parameter is false.
+        /// </summary>
+        /// <param name="condition">Condition to verify that must be false.</param>
+        /// <param name="message">Exception message.</param>
+        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentException">Thrown when the <paramref name="condition"/> parameter is true.</exception>
+        public static void False(bool condition, string message, string parameterName)
+        {
+            if (condition)
+                throw new ArgumentException(message, parameterName);
+        }
+
+        /// <summary>
+        /// Require that the <paramref name="condition"/> parameter is false.
+        /// </summary>
+        /// <param name="condition">Condition to verify that must be false.</param>
+        /// <param name="createException">Factory method that creates the exception thrown.</param>
+        /// <exception cref="False{TException}">Thrown when the <paramref name="condition"/> parameter is true.</exception>
+        public static void False<TException>(bool condition, Func<TException> createException) where TException : Exception
+        {
+            if (condition)
+                throw createException();
+        }
+
+        /// <summary>
         /// Require that the <paramref name="value"/> parameter is not null.
         /// </summary>
         /// <param name="value">Value that must not be null.</param>
