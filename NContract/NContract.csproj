@@ -2,5 +2,12 @@
   <PropertyGroup>
     <TargetFramework>netstandard1.0</TargetFramework>
     <LangVersion>default</LangVersion>
+    <Version>1.0</Version>
+    <PackageId>NContract</PackageId>
+    <Title>NContract</Title>
+    <Description>NContract is a design by contract library that lets you write oneliners to verify parameters in constructors and methods instead of using more verbose if statements.</Description>
+    <PackageTags>dbc;design-by-contract</PackageTags>
+    <PackageProjectUrl>https://github.com/nhedlund/ncontract</PackageProjectUrl>
+    <Authors>Niklas Hedlund</Authors>
   </PropertyGroup>
 </Project>
