@@ -8,6 +8,8 @@
     <Description>NContract is a design by contract library that lets you write oneliners to verify parameters in constructors and methods instead of using more verbose if statements.</Description>
     <PackageTags>dbc;design-by-contract</PackageTags>
     <PackageProjectUrl>https://github.com/nhedlund/ncontract</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/nhedlund/ncontract/blob/master/LICENSE</PackageLicenseUrl>
     <Authors>Niklas Hedlund</Authors>
+    <Copyright>Copyright © Niklas Hedlund 2018</Copyright>
   </PropertyGroup>
 </Project>
