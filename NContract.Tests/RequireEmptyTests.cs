@@ -4,30 +4,30 @@ using Xunit;
 
 namespace NContract.Tests
 {
-    public class RequireNotEmptyTests
+    public class RequireEmptyTests
     {
         [Fact]
-        public void Array_WhenNotEmpty_DoesNotThrow()
+        public void Array_WhenEmpty_DoesNotThrow()
         {
-            Require.NotEmpty(new[] { 1 }, "name");
+            Require.Empty(new decimal[0], "name");
         }
 
         [Fact]
-        public void Array_WhenEmpty_ThrowsArgumentException()
+        public void Array_WhenNotEmpty_ThrowsArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => Require.NotEmpty(new decimal[0], "name"));
+            Assert.Throws<ArgumentException>(() => Require.Empty(new[] { 1 }, "name"));
         }
 
         [Fact]
-        public void Dictionary_WhenNotEmpty_DoesNotThrow()
+        public void Dictionary_WhenEmpty_DoesNotThrow()
         {
-            Require.NotEmpty(new Dictionary<int,string> { { 1, "x" } }, "name");
+            Require.Empty(new Dictionary<int,string>(), "name");
         }
 
         [Fact]
-        public void Dictionary_WhenEmpty_ThrowsArgumentException()
+        public void Dictionary_WhenNotEmpty_ThrowsArgumentException()
         {
-            Assert.Throws<ArgumentException>(() => Require.NotEmpty(new Dictionary<int,string>(), "name"));
+            Assert.Throws<ArgumentException>(() => Require.Empty(new Dictionary<int,string> { { 1, "x" } }, "name"));
         }
     }
 }

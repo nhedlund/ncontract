@@ -137,5 +137,17 @@ namespace NContract
             if (value.Count == 0)
                 throw new ArgumentException("Value must not be empty.", parameterName);
         }
+
+        /// <summary>
+        /// Require that the <paramref name="value"/> parameter is empty.
+        /// </summary>
+        /// <param name="value">Value that must be be empty.</param>
+        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is not empty.</exception>
+        public static void Empty(ICollection value, string parameterName)
+        {
+            if (value.Count > 0)
+                throw new ArgumentException("Value must be empty.", parameterName);
+        }
     }
 }
