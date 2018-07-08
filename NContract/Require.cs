@@ -27,7 +27,7 @@ namespace NContract
         /// </summary>
         /// <param name="condition">Condition to verify that must be true.</param>
         /// <param name="message">Exception message.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentException">Thrown when the <paramref name="condition"/> parameter is false.</exception>
         public static void True(bool condition, string message, string parameterName)
         {
@@ -64,7 +64,7 @@ namespace NContract
         /// </summary>
         /// <param name="condition">Condition to verify that must be false.</param>
         /// <param name="message">Exception message.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentException">Thrown when the <paramref name="condition"/> parameter is true.</exception>
         public static void False(bool condition, string message, string parameterName)
         {
@@ -88,7 +88,7 @@ namespace NContract
         /// Require that the <paramref name="value"/> parameter is not null.
         /// </summary>
         /// <param name="value">Value that must not be null.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
         public static void NotNull(object value, string parameterName)
         {
@@ -100,7 +100,7 @@ namespace NContract
         /// Require that the <paramref name="value"/> parameter is null.
         /// </summary>
         /// <param name="value">Value that must be null.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is not null.</exception>
         public static void Null(object value, string parameterName)
         {
@@ -112,7 +112,7 @@ namespace NContract
         /// Require that the <paramref name="value"/> parameter is not null and not empty.
         /// </summary>
         /// <param name="value">Value that must not be null and not empty.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
         /// <exception cref="ArgumentException">Thrown when the <paramref name="value"/> parameter is empty.</exception>
         public static void NotNullOrEmpty(string value, string parameterName)
@@ -127,10 +127,31 @@ namespace NContract
         }
 
         /// <summary>
+        /// Require that the <paramref name="value"/> parameter is not null, not empty and not whitespace.
+        /// </summary>
+        /// <param name="value">Value that must not be null, not empty and not whitespace.</param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when the <paramref name="value"/> parameter is empty or whitespace.</exception>
+        public static void NotNullOrWhitespace(string value, string parameterName)
+        {
+            if (!string.IsNullOrWhiteSpace(value))
+                return;
+
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
+            if (value == "")
+                throw new ArgumentException("Value must not be empty.", parameterName);
+
+            throw new ArgumentException("Value must not be whitespace.", parameterName);
+        }
+
+        /// <summary>
         /// Require that the <paramref name="value"/> parameter is not empty.
         /// </summary>
         /// <param name="value">Value that must be not be empty.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is empty.</exception>
         public static void NotEmpty(ICollection value, string parameterName)
         {
@@ -142,7 +163,7 @@ namespace NContract
         /// Require that the <paramref name="value"/> parameter is empty.
         /// </summary>
         /// <param name="value">Value that must be be empty.</param>
-        /// <param name="parameterName">Parameter name. Use <c>nameof(parameter)</c></param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
         /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is not empty.</exception>
         public static void Empty(ICollection value, string parameterName)
         {
