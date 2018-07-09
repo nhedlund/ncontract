@@ -198,5 +198,23 @@ namespace NContract
             if (!value.Any(predicate))
                 throw new ArgumentException(message, parameterName);
         }
+
+        /// <summary>
+        /// Require that the <paramref name="value"/> parameter contains at no element that matches the <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="value">Value that should not contain an element that matches the <paramref name="predicate"/>.</param>
+        /// <param name="predicate">Predicate that must be false for all elements in <paramref name="value"/>.</param>
+        /// <param name="message">Exception message.</param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when an element is found that matches the predicate.</exception>
+        public static void None<TParameter>(IEnumerable<TParameter> value, Func<TParameter, bool> predicate, string message, string parameterName)
+        {
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
+            if (value.Any(predicate))
+                throw new ArgumentException(message, parameterName);
+        }
     }
 }
