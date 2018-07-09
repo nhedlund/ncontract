@@ -216,5 +216,23 @@ namespace NContract
             if (value.Any(predicate))
                 throw new ArgumentException(message, parameterName);
         }
+
+        /// <summary>
+        /// Require that the <paramref name="value"/> parameters values all matches the <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="value">Value whose elements should all match the <paramref name="predicate"/>.</param>
+        /// <param name="predicate">Predicate that must be true for all elements in <paramref name="value"/>.</param>
+        /// <param name="message">Exception message.</param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when an element is found that does not match the predicate.</exception>
+        public static void All<TParameter>(IEnumerable<TParameter> value, Func<TParameter, bool> predicate, string message, string parameterName)
+        {
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
+            if (!value.All(predicate))
+                throw new ArgumentException(message, parameterName);
+        }
     }
 }
