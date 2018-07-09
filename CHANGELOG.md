@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.33
+
+* Added Any
+* Added All
+* Added None
+
 ## 1.0.21
 
 * Added True
