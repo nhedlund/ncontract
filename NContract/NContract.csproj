@@ -11,5 +11,6 @@
     <PackageLicenseUrl>https://github.com/nhedlund/ncontract/blob/master/LICENSE</PackageLicenseUrl>
     <Authors>Niklas Hedlund</Authors>
     <Copyright>Copyright © Niklas Hedlund 2018</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 </Project>
