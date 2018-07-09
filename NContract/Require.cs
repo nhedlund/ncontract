@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace NContract
 {
@@ -169,6 +171,23 @@ namespace NContract
         {
             if (value.Count > 0)
                 throw new ArgumentException("Value must be empty.", parameterName);
+        }
+
+        /// <summary>
+        /// Require that the <paramref name="value"/> parameter contains at least one element that satisfies the <paramref name="predicate"/>.
+        /// </summary>
+        /// <param name="value">Value that should contain at least one element that satisfies the <paramref name="predicate"/>.</param>
+        /// <param name="predicate">Predicate that must be true for at least one element in <paramref name="value"/>.</param>
+        /// <param name="message">Exception message.</param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentException">Thrown when not a single element satisfies the predicate.</exception>
+        public static void Any<TParameter>(IEnumerable<TParameter> value, Func<TParameter, bool> predicate, string message, string parameterName)
+        {
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
+            if (!value.Any(predicate))
+                throw new ArgumentException(message, parameterName);
         }
     }
 }
