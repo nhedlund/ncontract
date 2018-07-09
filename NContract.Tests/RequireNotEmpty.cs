@@ -19,6 +19,12 @@ namespace NContract.Tests
         }
 
         [Fact]
+        public void Array_WhenNull_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => Require.NotEmpty(null, "name"));
+        }
+
+        [Fact]
         public void Dictionary_WhenNotEmpty_DoesNotThrow()
         {
             Require.NotEmpty(new Dictionary<int,string> { { 1, "x" } }, "name");

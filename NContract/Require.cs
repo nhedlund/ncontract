@@ -154,9 +154,13 @@ namespace NContract
         /// </summary>
         /// <param name="value">Value that must be not be empty.</param>
         /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
-        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is empty.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when the <paramref name="value"/> parameter is empty.</exception>
         public static void NotEmpty(ICollection value, string parameterName)
         {
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
             if (value.Count == 0)
                 throw new ArgumentException("Value must not be empty.", parameterName);
         }
@@ -166,9 +170,13 @@ namespace NContract
         /// </summary>
         /// <param name="value">Value that must be be empty.</param>
         /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
-        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is not empty.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when the <paramref name="value"/> parameter is not empty.</exception>
         public static void Empty(ICollection value, string parameterName)
         {
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
             if (value.Count > 0)
                 throw new ArgumentException("Value must be empty.", parameterName);
         }
@@ -180,6 +188,7 @@ namespace NContract
         /// <param name="predicate">Predicate that must be true for at least one element in <paramref name="value"/>.</param>
         /// <param name="message">Exception message.</param>
         /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
         /// <exception cref="ArgumentException">Thrown when not a single element satisfies the predicate.</exception>
         public static void Any<TParameter>(IEnumerable<TParameter> value, Func<TParameter, bool> predicate, string message, string parameterName)
         {
