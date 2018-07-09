@@ -22,6 +22,9 @@ mkdir -p $PACKDIR
 dotnet pack -c Release -o ~/tmp
 echo "Package created in: $HOME/tmp"
 
+# Copy README
+cp -f README.md ~/tmp
+
 # Deploy
 # pushd packages > /dev/null
 # dotnet nuget push -k $MYGET_TOKEN -s https://www.myget.org/F/nfeed/api/v3/index.json NContract*
