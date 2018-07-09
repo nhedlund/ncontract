@@ -18,12 +18,14 @@ find -name "*.csproj" | xargs sed -i -e "s/<Version>.*<\/Version>/<Version>$VERS
 # Pack
 PACKDIR="$WORKDIR/packages"
 mkdir -p $PACKDIR
-dotnet pack -c Release -o $PACKDIR
+# dotnet pack -c Release -o $PACKDIR
+dotnet pack -c Release -o ~/tmp
+echo "Package created in: $HOME/tmp"
 
 # Deploy
-pushd packages > /dev/null
-dotnet nuget push -k $MYGET_TOKEN -s https://www.myget.org/F/nfeed/api/v3/index.json NContract*
-popd > /dev/null
+# pushd packages > /dev/null
+# dotnet nuget push -k $MYGET_TOKEN -s https://www.myget.org/F/nfeed/api/v3/index.json NContract*
+# popd > /dev/null
 
 # Exit
 popd > /dev/null
