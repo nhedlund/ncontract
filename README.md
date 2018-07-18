@@ -62,7 +62,7 @@ Require.Empty(parameter, nameof(parameter));
 
 To verify that a parameter value has at least one element satisfying a predicate, for example >= 10:
 ```csharp
-Require.Any(parameter, v => v >= 10, "At leat one parameter element must be 10 or greater", nameof(parameter));
+Require.Any(parameter, v => v >= 10, "At least one parameter element must be 10 or greater", nameof(parameter));
 ```
 
 To verify that all parameter values satisfies a predicate, for example >= 10:
