@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.37
+
+* Fixed exclusion of content documents
+
 ## 1.1.33
 
 * Added Any

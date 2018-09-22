@@ -7,6 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NContract", "NContract\NCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NContract.Tests", "NContract.Tests\NContract.Tests.csproj", "{D74CEEAC-747C-40C3-B107-3D699FC1CB26}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{5B92A014-E72F-4596-9BEE-025B75944788}"
+ProjectSection(SolutionItems) = preProject
+	CHANGELOG.md = CHANGELOG.md
+	README.md = README.md
+	VERSION = VERSION
+	deploy = deploy
+	runtests = runtests
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

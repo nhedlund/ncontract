@@ -1,6 +1,6 @@
 # NContract - a design by contract library for .NET
 
-NContract lets you write oneliners to verify parameters in constructors and methods instead of using more verbose if statements.
+NContract lets you write one-liners to verify parameters in constructors and methods instead of using more verbose if statements.
 
 ## Installation
 
