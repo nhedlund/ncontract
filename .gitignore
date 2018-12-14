@@ -3,3 +3,4 @@ obj
 coverage.json
 
 .idea
+*.user
