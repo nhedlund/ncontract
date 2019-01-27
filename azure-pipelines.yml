@@ -15,8 +15,8 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- bash: build
+- bash: ./build
   displayName: Build
 
-- bash: runtests
+- bash: ./runtests
   displayName: Build
