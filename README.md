@@ -77,6 +77,13 @@ To verify that no parameter values matches a predicate, for example >= 10:
 Require.None(parameter, v => v >= 10, "No parameter elements can be 10 or greater", nameof(parameter));
 ```
 
+### Implements type checks
+
+To verify that a parameter value implements a type T:
+```csharp
+Require.Implements<T>(parameter, nameof(parameter)");
+```
+
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 
 namespace NContract
 {
@@ -200,7 +201,7 @@ namespace NContract
         }
 
         /// <summary>
-        /// Require that the <paramref name="value"/> parameter contains at no element that matches the <paramref name="predicate"/>.
+        /// Require that the <paramref name="value"/> parameter contains no element that matches the <paramref name="predicate"/>.
         /// </summary>
         /// <param name="value">Value that should not contain an element that matches the <paramref name="predicate"/>.</param>
         /// <param name="predicate">Predicate that must be false for all elements in <paramref name="value"/>.</param>
@@ -233,6 +234,22 @@ namespace NContract
 
             if (!value.All(predicate))
                 throw new ArgumentException(message, parameterName);
+        }
+
+        /// <summary>
+        /// Require that the <paramref name="value"/> parameter implements <typeparamref name="TImplements"/>.
+        /// </summary>
+        /// <param name="value">Value that should implement <typeparamref name="TImplements"/>.</param>
+        /// <param name="parameterName">Parameter name. Use: <c>nameof(parameter)</c></param>
+        /// <exception cref="ArgumentNullException">Thrown when the <paramref name="value"/> parameter is null.</exception>
+        /// <exception cref="ArgumentException">Thrown when the <paramref name="value"/> does not implement <typeparamref name="TImplements"/>.</exception>
+        public static void Implements<TImplements>(object value, string parameterName)
+        {
+            if (value == null)
+                throw new ArgumentNullException(parameterName);
+
+            if (!typeof(TImplements).GetTypeInfo().IsAssignableFrom(value.GetType().GetTypeInfo()))
+                throw new ArgumentException($"Value does not implement {typeof(TImplements).FullName}.", parameterName);
         }
     }
 }
