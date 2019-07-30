@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.47
+
+* Added Implements
+
 ## 1.1.37
 
 * Fixed exclusion of content documents
