@@ -11,7 +11,7 @@
         <PackageProjectUrl>https://github.com/nhedlund/ncontract</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <Authors>Niklas Hedlund</Authors>
-        <Copyright>Copyright © Niklas Hedlund 2018</Copyright>
+        <Copyright>Copyright © Niklas Hedlund 2019</Copyright>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
 </Project>
