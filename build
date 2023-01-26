@@ -1,10 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-CONFIGURATION=$1
-
-[ -z $CONFIGURATION ] && CONFIGURATION=Release
+# Version
+dotnet tool restore
+VERSION=$(dotnet minver -v e -d src)
+if [[ -v GITHUB_ENV ]]; then
+  echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+fi
+echo
+echo "Version: $VERSION"
+echo
 
 # Build
-BUILD_CMD="dotnet build -c ${CONFIGURATION}"
-echo "Build command: $BUILD_CMD"
-exec $BUILD_CMD
+pushd src > /dev/null || exit
+dotnet restore
+dotnet build --no-restore --configuration Release
+
+popd > /dev/null || exit

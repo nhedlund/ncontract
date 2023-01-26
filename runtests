@@ -1,3 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -e
 
-dotnet test /p:CollectCoverage=true /p:Include="[NContract]*" /p:Threshold=100 NContract.Tests
+echo "Version: $VERSION"
+
+dotnet test --no-build --configuration Release --verbosity normal \
+  --logger "trx;LogFileName=tests.trx" --logger "console;verbosity=detailed" \
+  /p:CollectCoverage=true /p:Include="[NContract]*" /p:Threshold=100 src/NContract.sln

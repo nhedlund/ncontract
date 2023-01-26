@@ -1,0 +1,22 @@
+#top-most EditorConfig file
+root = true
+
+###### Common
+[*]
+indent_style = space
+indent_size = 2
+
+###### Analyzers
+[*.{cs}]
+
+# CA1848: Use the LoggerMessage delegates
+dotnet_diagnostic.CA1848.severity = none
+
+# CA1050: Declare types in namespaces
+dotnet_diagnostic.CA1050.severity = none
+
+# CA1716: Reserved keywords
+dotnet_diagnostic.CA1716.severity = none
+
+# CA1707: Remove underscores in method names
+dotnet_diagnostic.CA1707.severity = none

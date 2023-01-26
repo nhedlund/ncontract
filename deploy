@@ -1,34 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-# Get version
-NAME="NContract"
-VERSION="`cat VERSION`.`git rev-list HEAD --count`"
-echo "Publishing $NAME $VERSION"
+dotnet pack -c Release -o packages -v normal src/NContract.sln
 
-# Copy project to work dir
-WORKDIR=`mktemp -d 2>/dev/null || mktemp -d -t 'workdir'`
-echo "Work dir: $WORKDIR"
-
-# Set version on all projects
-cp -r ./ $WORKDIR
-pushd $WORKDIR > /dev/null
-find -name "*.csproj" | xargs sed -i -e "s/<Version>.*<\/Version>/<Version>$VERSION<\/Version>/"
-
-# Pack
-PACKDIR="$WORKDIR/packages"
-mkdir -p $PACKDIR
-# dotnet pack -c Release -o $PACKDIR
-dotnet pack -c Release -o ~/tmp
-echo "Package created in: $HOME/tmp"
-
-# Copy README
-cp -f README.md ~/tmp
-
-# Deploy
-# pushd packages > /dev/null
-# dotnet nuget push -k $MYGET_TOKEN -s https://www.myget.org/F/nfeed/api/v3/index.json NContract*
-# popd > /dev/null
-
-# Exit
-popd > /dev/null
