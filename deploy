@@ -2,4 +2,4 @@
 set -e
 
 dotnet pack -c Release -o packages -v normal src/NContract.sln
-
+dotnet nuget push packages/*.nupkg --skip-duplicate -k $NUGET_DEPLOY -s https://api.nuget.org/v3/index.json
