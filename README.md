@@ -1,6 +1,6 @@
 # NContract - a design by contract library for .NET
 
-[![Build Status](https://dev.azure.com/orisoft/ncontract/_apis/build/status/nhedlund.ncontract?branchName=master)](https://dev.azure.com/orisoft/ncontract/_build/latest?definitionId=4?branchName=master)
+[![CI](https://github.com/nhedlund/ncontract/actions/workflows/ci.yml/badge.svg)](https://github.com/nhedlund/ncontract/actions/workflows/ci.yml)
 
 NContract lets you write one-liners to verify parameters in constructors and methods instead of using more verbose if statements.
 
