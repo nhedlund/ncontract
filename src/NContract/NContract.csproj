@@ -1,15 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
-        <Version>0.0</Version>
-        <PackageId>NContract</PackageId>
-        <Title>NContract</Title>
-        <Description>NContract is a design by contract library that lets you write oneliners to verify parameters in constructors and methods instead of using more verbose if statements.</Description>
-        <PackageTags>dbc;design-by-contract</PackageTags>
-        <PackageProjectUrl>https://github.com/nhedlund/ncontract</PackageProjectUrl>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <Authors>Niklas Hedlund</Authors>
-        <Copyright>Copyright © Niklas Hedlund 2019</Copyright>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
+    <Version>0.0</Version>
+    <PackageId>NContract</PackageId>
+    <Title>NContract</Title>
+    <Description>NContract is a design by contract library that lets you write oneliners to verify parameters in constructors and methods instead of using more verbose if statements.</Description>
+    <PackageTags>dbc;design-by-contract</PackageTags>
+    <PackageProjectUrl>https://github.com/nhedlund/ncontract</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Niklas Hedlund</Authors>
+    <Copyright>Copyright © Niklas Hedlund 2019</Copyright>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <Deterministic>true</Deterministic>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <AnalysisMode>Recommended</AnalysisMode>
+    <EnablePackageValidation>true</EnablePackageValidation>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>embedded</DebugType>
+  </PropertyGroup>
 </Project>
