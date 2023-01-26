@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
-    <Version>0.0</Version>
     <PackageId>NContract</PackageId>
     <Title>NContract</Title>
     <Description>NContract is a design by contract library that lets you write oneliners to verify parameters in constructors and methods instead of using more verbose if statements.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>dbc;design-by-contract</PackageTags>
     <PackageProjectUrl>https://github.com/nhedlund/ncontract</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -19,4 +19,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MinVer" Version="4.2.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/"/>
+  </ItemGroup>
 </Project>
